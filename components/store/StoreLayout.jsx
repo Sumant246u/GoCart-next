@@ -3,7 +3,7 @@ import React from 'react'
 const StoreLayout = ({children}) => {
   return (
     <div>
-      <p>Layout</p>
+      {/* <p>Layout</p> */}
     </div>
   )
 }
