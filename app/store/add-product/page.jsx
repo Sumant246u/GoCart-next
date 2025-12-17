@@ -25,7 +25,7 @@ export default function StoreAddProduct() {
     }
 
     const onSubmitHandler = async (e) => {
-        e.preventDefult()
+        e.preventDefault()
 
         // Logic to add a product
     }
