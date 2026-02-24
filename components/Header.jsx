@@ -1,10 +1,11 @@
+'use client'
 import { Search, ShoppingCart } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-const Navbar = () => {
+const Header = () => {
 
     const router = useRouter();
 
@@ -17,7 +18,7 @@ const Navbar = () => {
         router.push(`/shop?search=${search}`)    // becomes  "/shop?search=laptop"
     }
     return (
-        <nav className=' relative bg-white'>
+        <nav id='#main-content' className=' relative bg-white'>
             <div className='mx-6'>
                 <div className='flex items-center  justify-between max-w-7xl mx-auto py-4 trnasition-all'>
                     <Link href='/' className=' relative text-4xl font-semibold text-slate-700'>
@@ -63,4 +64,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Header

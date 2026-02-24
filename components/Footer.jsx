@@ -33,19 +33,21 @@ const Footer = () => {
         {
             title: "CONTACT",
             links: [
-                { text: "+1-212-456-7890", path: '/', icon: MailIcon },
-                { text: "contact@example.com", path: '/', icon: PhoneIcon },
-                { text: "794 Francisco, 94102", path: '/', icon: MapPinIcon }
+                { text: "+1-212-456-7890", path: "tel:+12124567890", icon: PhoneIcon },
+                { text: "contact@example.com", path: "mailto:contact@example.com", icon: MailIcon },
+                { text: "794 Francisco, 94102", path: "https://maps.google.com", icon: MapPinIcon }
             ]
         }
+
     ];
 
     const socialIcons = [
-        { icon: FacebookIcon, link: "https://www.facebook.com" },
-        { icon: InstagramIcon, link: "https://www.instagram.com" },
-        { icon: TwitterIcon, link: "https://twitter.com" },
-        { icon: LinkedinIcon, link: "https://www.linkedin.com" },
-    ]
+        { icon: FacebookIcon, link: "https://www.facebook.com", label: "Visit our Facebook page" },
+        { icon: InstagramIcon, link: "https://www.instagram.com", label: "Visit our Instagram page" },
+        { icon: TwitterIcon, link: "https://twitter.com", label: "Visit our Twitter page" },
+        { icon: LinkedinIcon, link: "https://www.linkedin.com", label: "Visit our LinkedIn page" },
+    ];
+
     return (
         <footer className="mx-6 bg-white">
             <div className="max-w-7xl mx-auto">
@@ -57,9 +59,16 @@ const Footer = () => {
                         <p className="max-w-[410px] mt-6 text-sm">Welcome to gocart, your ultimate destination for the latest and smartest gadgets. From smartphones and smartwatches to essential accessories, we bring you the best in innovation — all in one place.</p>
                         <div className="flex items-center gap-3 mt-5">
                             {socialIcons.map((item, i) => (
-                                <Link href={item.link} key={i} className="flex items-center justify-center w-10 h-10 bg-slate-100 hover:scale-105 hover:border border-slate-300 transition rounded-full">
-                                    <item.icon />
+                                <Link key={i}
+                                    href={item.link}
+                                    aria-label={item.label}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center w-10 h-10 bg-slate-100 hover:scale-105 hover:border border-slate-300 transition rounded-full"
+                                >
+                                    <item.icon aria-hidden="true" />
                                 </Link>
+
                             ))}
                         </div>
                     </div>
@@ -70,7 +79,7 @@ const Footer = () => {
                                 <ul className="space-y-2.5">
                                     {section.links.map((link, i) => (
                                         <li key={i} className="flex items-center gap-2">
-                                            {link.icon && <link.icon />}
+                                            {link.icon && <link.icon aria-hidden="true" />}
                                             <Link href={link.path} className="hover:underline transition">{link.text}</Link>
                                         </li>
                                     ))}
